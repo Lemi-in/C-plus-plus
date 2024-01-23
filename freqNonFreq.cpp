@@ -7,56 +7,63 @@ int main()
     string name;
     int size;
 
-    cout << "What is your name? -";
+    cout << "What is your name? - ";
     getline(cin, name);
 
-    cout << "How many elements? -";
+    cout << "How many elements? - ";
     cin >> size;
 
     int arr[size];
 
-    for (int i = 0; i < size; i++)
-    {
-        cout << "Enter number " << i + 1 << " :";
+    
+    cout << "Enter " << size << " elements separated by space: ";
+    for (int i = 0; i < size; ++i)
+    { 
+        cout<<"Enter element "<< i + 1<<" : ";
         cin >> arr[i];
     }
 
-    bool isfrequent = false;
-    for (int i = 0; i < size; i++)
+    int firstFrequent = -1;
+    int firstNonFrequent = -1;
+
+    for (int i = 0; i < size; ++i)
     {
-        for (int j = 0; j < size; j++)
+        int count = 1; 
+
+        for (int j = 0; j < size; ++j)
         {
-            if (i != j)
+            if (i != j && arr[i] == arr[j])
             {
-                if (arr[i] == arr[j])
-                {
-                    isfrequent = true;
-                }
-               
+                count++;
             }
         }
-         if (isfrequent)
-                {
-                    cout << "Hi " << name << ", the first frequent element is " << arr[i] << endl;
-                    break;
-                }
-    }
-        bool isnonfrequent = false;
-        for (int i = 0; i < size; i++)
+
+        if (count > 1 && firstFrequent == -1)
         {
-            for (int j = 0; j < size; j++)
-            {
-                if (i != j)
-                {
-                    if (arr[i] != arr[j])
-                    {
-                        isnonfrequent = true;
-                    }
-                }
-            }
-             if(isnonfrequent){
-                    cout<<"Hi "<<name<<", the first non frequent element is "<<arr[i]<<endl;
-                    break;
+            firstFrequent = arr[i];
+        }
+        else if (count == 1 && firstNonFrequent == -1)
+        {
+            firstNonFrequent = arr[i];
+        }
+
+        if (firstFrequent != -1 && firstNonFrequent != -1)
+        {
+            break; 
         }
     }
+
+    
+    cout << "Hi " << name << ", the first frequent element is " << firstFrequent << endl;
+
+    if (firstNonFrequent != -1)
+    {
+        cout << "Hi " << name << ", the first non-frequent element is " << firstNonFrequent << endl;
+    }
+    else
+    {
+        cout << "Hi " << name << ", there are no non-frequent elements in the array." << endl;
+    }
+
+    return 0;
 }
