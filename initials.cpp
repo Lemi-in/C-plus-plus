@@ -19,6 +19,7 @@ int main() {
     cout<<"The first later of your middle name is \' "<<middle[0]<< " \' " <<endl;
     cout<<"The first later of your last name is \' "<<last[0]<< " \' " <<endl;
    
+   
         }
         
 

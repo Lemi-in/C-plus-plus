@@ -12,7 +12,7 @@ int main() {
 cout<<ptr+1<<endl;
 cout<<ptr+2<<endl;
 cout<<ptr-1<<endl;
-cout<<ptr-3<<endl;
+// cout<<ptr-3<<endl;
 
    
     */
