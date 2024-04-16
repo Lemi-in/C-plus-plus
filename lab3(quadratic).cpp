@@ -46,7 +46,6 @@ struct Quadratic{
     float root;
     
 };
-
 float getRoot1(Quadratic q) {
     if (q.a != 0 && q.root >= 0) {
         return (-q.b + q.root) / (2 * q.a);
@@ -75,10 +74,8 @@ int main() {
      
     cout << "Enter a, b, c: ( for class) ";
     cin >> a >> b >> c;
-
     q.setCoe(a, b, c);
 
-    // for struct Quadratic
     Quadratic q1;
     cout << "Enter a, b, c:(for structure)";
     cin >> q1.a >> q1.b >> q1.c;
