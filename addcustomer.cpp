@@ -31,7 +31,7 @@ int main()
     int size;
     cout << "Enter the number of accounts: ";
     cin >> size;
-    cin.ignore(); // to consume the newline character left in the buffer after entering the size
+ 
 
     Account account[size];
 
@@ -43,7 +43,7 @@ int main()
         cin >> account[i].accountNo;
         cout << "Enter the account balance: ";
         cin >> account[i].balance;
-        cin.ignore(); // to consume the newline character left in the buffer after entering the balance
+        
     }
 
     cout << "\nAccounts with balance less than $200:\n";
