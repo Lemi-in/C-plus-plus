@@ -31,7 +31,6 @@ int main()
     int size;
     cout << "Enter the number of accounts: ";
     cin >> size;
- 
 
     Account account[size];
 
@@ -43,7 +42,6 @@ int main()
         cin >> account[i].accountNo;
         cout << "Enter the account balance: ";
         cin >> account[i].balance;
-        
     }
 
     cout << "\nAccounts with balance less than $200:\n";

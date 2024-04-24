@@ -9,11 +9,17 @@ int fib(int n) {
 }
 
 int main() {
-  int n = 10; 
+  int n;
+  cout << "Enter the number of terms: ";
+  cin >> n;
 
   for (int i = 0; i < n; i++) {
     cout << fib(i) << " "; 
   }
+
+  // get the nth term
+  cout << "\n" <<"The "<<n<<"th term is " <<fib(n - 1) << endl;
+
 
   return 0;
 }
