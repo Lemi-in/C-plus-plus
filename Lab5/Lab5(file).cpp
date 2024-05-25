@@ -4,6 +4,7 @@
 using namespace std;
 
 ofstream studentInfo("D:\\test.txt");
+
 void getRecord(){
     int test_mark;
     string name;
@@ -25,6 +26,5 @@ int main(){
        getRecord();
     }
     
-
 }
     

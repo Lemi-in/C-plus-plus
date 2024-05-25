@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/user/Desktop/c++",
-      "program": "c:/Users/user/Desktop/c++/build/Debug/outDebug",
+      "cwd": "c:/Users/user/Desktop/c++/Lab7",
+      "program": "c:/Users/user/Desktop/c++/Lab7/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

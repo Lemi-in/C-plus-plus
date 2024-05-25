@@ -9,9 +9,8 @@ void readIntegersFromFile(const char* filename, int* array, int* count) {
     int num;
     *count = 0;
 
-
     if (!file) {
-        cerr << "Error opening file." << endl;
+        cout<< "Error opening file." << endl;
         return;
     }
 
@@ -24,7 +23,7 @@ void readIntegersFromFile(const char* filename, int* array, int* count) {
 }
 
 int main() {
-    const char* filename = "integer_records.txt";
+    const char* filename = "records.txt";
     int array[100]; 
     int count;
 
@@ -39,3 +38,4 @@ int main() {
 
     return 0;
 }
+
