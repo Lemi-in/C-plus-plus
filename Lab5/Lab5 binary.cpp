@@ -1,44 +1,38 @@
-#include <iostream>
-#include <fstream>
-#include <string>
+#include<iostream>
+#include<fstream>
 
 using namespace std;
+
+ofstream studentInfo("D:\\test.bin", ios::binary); // Open in binary mode
 
 struct Student {
     char name[50];
     int test_mark;
 };
 
-void getRecord(ofstream &studentInfo) {
-    Student student;
-    cout << "Enter the name: ";
-    cin.ignore();
+void getRecord(Student& student){
+    cout<<"Enter the names: ";
+    cin.ignore(); // Ignore the newline character left in the input buffer
     cin.getline(student.name, 50);
 
-    cout << "Enter the result: ";
-    cin >> student.test_mark;
-
-   
-    studentInfo.write(reinterpret_cast<char*>(&student), sizeof(Student));
+    cout<<"Enter the results ";
+    cin>>student.test_mark;
 }
 
-int main() {
-    const char* filename = "D:\\students.bin";
-    ofstream studentInfo(filename, ios::binary);
-
-    if (!studentInfo) {
-        cerr << "Error opening file for writing." << endl;
-        return 1;
-    }
-
+int main(){
     int num;
-    cout << "Enter the number of students: ";
-    cin >> num;
+    cout<<"Enter The # of Students ";
+    cin>>num;
 
-    for (int i = 0; i < num; i++) {
-        getRecord(studentInfo);
+    Student student;
+
+    for (int i = 0; i < num; i++)
+    {
+        getRecord(student);
+        studentInfo.write((char*)&student, sizeof(Student)); // Write to binary file
     }
+    
+    studentInfo.close(); // Close the file
 
-    studentInfo.close();
     return 0;
 }

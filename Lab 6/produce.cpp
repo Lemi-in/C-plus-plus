@@ -5,8 +5,7 @@
 using namespace std;
 
 int main() {
-    ifstream inFile;
-    inFile.open("employees.txt");
+    ifstream inFile("employees.txt");
 
     if (!inFile) {
         cout << "Error opening file" << endl;
@@ -32,8 +31,6 @@ int main() {
         cout << name << "\t" << rate << "\t" << hours << "\t"
              << regularPay << "\t" << overtime << "\t" << grossPay << endl;
     }
-
-    inFile.close();
 
     return 0;
 }

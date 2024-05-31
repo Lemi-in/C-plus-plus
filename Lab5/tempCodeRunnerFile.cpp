@@ -1,41 +1,32 @@
 #include <iostream>
 #include <fstream>
+#include <unordered_map>
 
 using namespace std;
 
+int main() {
 
-void readIntegersFromFile(const char* filename, int* array, int* count) {
-    ifstream file(filename);
-    int num;
-    *count = 0;
-
+    ifstream file("Sheet5Ex5.cpp");
+    char ch;
+    unordered_map<char, int> count; 
 
     if (!file) {
         cerr << "Error opening file." << endl;
-        return;
+        return 1;
     }
 
-    while (file >> num) {
-        array[*count] = num;
-        (*count)++;
+    while (file.get(ch)) {
+        if (ch >= 'a' && ch <= 'z') {
+            count[ch]++;
+        }
     }
 
     file.close();
-}
+    cout << "CHARACTER\tOCCURRENCES" << endl;
 
-int main() {
-    const char* filename = "integer_records.txt";
-    int array[100]; 
-    int count;
-
-   
-    readIntegersFromFile(filename, array, &count);
-
-    cout << "Number of entries: " << count << endl;
-    for (int i = 0; i < count; i++) {
-        cout << array[i] << " ";
+    for (char c = 'a'; c <= 'z'; ++c) {
+        cout << c << "\t\t" << count[c] << endl;
     }
-    cout << endl;
 
     return 0;
 }

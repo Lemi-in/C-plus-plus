@@ -1,6 +1,5 @@
-#include <iostream>
-#include <fstream>
-#include <string>
+#include<iostream>
+#include<fstream>
 
 using namespace std;
 
@@ -9,37 +8,21 @@ struct Student {
     int test_mark;
 };
 
-void getRecord(ofstream &studentInfo) {
-    Student student;
-    cout << "Enter the name: ";
-    cin.ignore();
-    cin.getline(student.name, 50);
-
-    cout << "Enter the result: ";
-    cin >> student.test_mark;
-
-    studentInfo.write(reinterpret_cast<char*>(&student), sizeof(Student));
-}
-
-int main() {
-    const char* filename = "D:\\students.bin";
-    ofstream studentInfo(filename, ios::binary);
+int main(){
+    ifstream studentInfo("D:\\test.bin", ios::binary); // Open in binary mode
 
     if (!studentInfo) {
-        cerr << "Error opening file for writing." << endl;
+        cerr << "Error opening file" << endl;
         return 1;
     }
 
-    int num;
-    cout << "Enter the number of students: ";
-    cin >> num;
+    Student student;
 
-    for (int i = 0; i < num; i++) {
-        getRecord(studentInfo);
+    while (studentInfo.read((char*)&student, sizeof(Student))) {
+        cout << "Name: " << student.name << ", Test Mark: " << student.test_mark << endl;
     }
 
-    studentInfo.close();
+    studentInfo.close(); // Close the file
+
     return 0;
 }
-
-
