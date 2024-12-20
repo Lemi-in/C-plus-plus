@@ -19,7 +19,6 @@ void count(string s, char c){
 
 }
 
-
 int main() {
     string text;
     char l;
